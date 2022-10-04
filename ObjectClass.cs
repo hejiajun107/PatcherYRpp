@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TextManager.Interop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -108,6 +109,13 @@ namespace PatcherYRpp
         {
             var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, PlacementType, Bool>)this.GetVirtualFunctionPointer(73);
             return func(ref this, placementType);
+        }
+
+        public unsafe bool Mark(MarkType type)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, MarkType, Bool>)
+                this.GetVirtualFunctionPointer(73);
+            return func(ref this, type);
         }
 
         public unsafe void DrawRadialIndicator(uint dwUnk)

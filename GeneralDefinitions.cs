@@ -487,6 +487,15 @@ namespace PatcherYRpp
         AbandonAll = 0x2E
     };
 
+    public enum MarkType
+    {
+        UP = 0,
+        DOWN = 1,
+        CHANGE = 2,
+        CHANGE_REDRAW = 3,
+        OVERLAP_DOWN = 4,
+        OVERLAP_UP = 5
+    }
     public enum Edge
     {
         None = -1,
