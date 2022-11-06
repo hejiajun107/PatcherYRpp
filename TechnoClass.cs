@@ -389,6 +389,14 @@ namespace PatcherYRpp
         }
 
 
+        public unsafe Pointer<LaserDrawClass> CreateLaser(Pointer<ObjectClass> pTarget, int idxWeapon, Pointer<WeaponTypeClass> pWeapon, CoordStruct coords)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, IntPtr, int, IntPtr, ref CoordStruct, IntPtr>)0x6FD210;
+            return func(ref this, pTarget, idxWeapon, pWeapon, ref coords);
+        }
+
+
+
         public unsafe void SetTargetForPassengers(Pointer<AbstractClass> pTarget)
         {
             var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, IntPtr, void>)0x710550;

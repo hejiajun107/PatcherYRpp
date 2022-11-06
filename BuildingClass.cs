@@ -13,12 +13,17 @@ namespace PatcherYRpp
         Pointer<BuildingTypeClass> IOwnAbstractType<BuildingTypeClass>.OwnType => Type;
         Pointer<AbstractTypeClass> IOwnAbstractType.AbstractType => Type.Convert<AbstractTypeClass>();
 
+        public unsafe uint GetCurrentFrame()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref BuildingClass, uint>)0x43EF90;
+            return func(ref this);
+        }
+
         public unsafe uint GetFWFlags()
         {
             var func = (delegate* unmanaged[Thiscall]<ref BuildingClass, uint>)0x455B90;
             return func(ref this);
         }
-
 
         [FieldOffset(0)] public TechnoClass Base;
         [FieldOffset(0)] public RadioClass BaseRadio;
