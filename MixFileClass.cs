@@ -15,9 +15,9 @@ namespace PatcherYRpp
         public uint Size;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Explicit)]
     public struct MixFileClass
-	{
+    {
         public struct GenericMixFiles
         {
             public Pointer<MixFileClass> RA2MD;
@@ -81,13 +81,14 @@ namespace PatcherYRpp
             func(ref pThis.Ref);
         }
 
-        public AnsiStringPointer FileName;
-        public Bool Blowfish;
-        public Bool Encryption;
-        public int CountFiles;
-        public int FileSize;
-        public int FileStartOffset;
-        public Pointer<MixHeaderData> Headers;
-        public int field_24;
+
+        [FieldOffset(12)] public AnsiStringPointer FileName;
+        [FieldOffset(16)] public Bool Blowfish;
+        [FieldOffset(17)] public Bool Encryption;
+        [FieldOffset(20)] public int CountFiles;
+        [FieldOffset(24)] public int FileSize;
+        [FieldOffset(28)] public int FileStartOffset;
+        [FieldOffset(32)] public Pointer<MixHeaderData> Headers;
+        [FieldOffset(36)] public int field_24;
     }
 }

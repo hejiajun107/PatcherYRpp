@@ -447,6 +447,12 @@ namespace PatcherYRpp
         [FieldOffset(540)] public IntPtr owner;
         public Pointer<HouseClass> Owner { get => owner; set => owner = value; }
 
+
+        [FieldOffset(624)] public Bool BeingWarpedOut; // is being warped by CLEG
+
+        [FieldOffset(625)] public Bool WarpingOut; // phasing in after chrono-jump
+
+
         [FieldOffset(664)] public Bool Berzerk;
 
         // unless source is Pushy=
