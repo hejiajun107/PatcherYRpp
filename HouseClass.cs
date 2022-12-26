@@ -244,6 +244,19 @@ namespace PatcherYRpp
         [FieldOffset(596)] public DynamicVectorClass<Pointer<SuperClass>> Supers;
 
 
+        [FieldOffset(21368)] public int NumAirpads;
+
+        [FieldOffset(21372)] public int NumBarracks;
+
+        [FieldOffset(21376)] public int NumWarFactories;
+
+        [FieldOffset(21380)] public int NumConYards;
+
+        [FieldOffset(21384)] public int NumShipyards;
+
+        [FieldOffset(21388)] public int NumOrePurifiers;
+
+
         [FieldOffset(21556)]public int TotalKilledUnits;
 
         [FieldOffset(21640)] public int TotalKilledBuildings;
