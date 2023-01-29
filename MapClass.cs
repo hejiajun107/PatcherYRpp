@@ -63,6 +63,27 @@ namespace PatcherYRpp
         //    var func = (delegate* managed<int, Pointer<WarheadTypeClass>, SpotlightFlags, bool, CoordStruct, void>)0x48A620;
         //    func(Damage, WH, CLDisableFlags, Force, coords);
         //}
+        //Should be GScreenClass
+        public unsafe void MarkNeedsRedraw(int dwUnk)
+        {
+            var func = (delegate* unmanaged[Thiscall]<IntPtr, int, void>)0x4F42F0;
+            func(this.GetThisPointer(), dwUnk);
+        }
+
+
+        public static unsafe void UnselectAll()
+        {
+            var func = (delegate* unmanaged[Thiscall]<int, void>)ASM.FastCallTransferStation;
+            func(0x48DC90); 
+        }
+
+        public unsafe void CenterMap()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref MapClass,void>)0x4AE290;
+            func(ref this);
+        }
+    
+
 
         public static unsafe int GetTotalDamage(int Damage, Pointer<WarheadTypeClass> WH, Armor armor, int distance)
         {
@@ -100,6 +121,8 @@ namespace PatcherYRpp
             func(ref this, out CellStruct outBuffer, ref position, SpeedType, a5, MovementZone, alt, SpaceSizeX, SpaceSizeY, disallowOverlay, a11, requireBurrowable, allowBridge, ref closeTo, a15, buildable);
             return outBuffer;
         }
+
+
 
 
 

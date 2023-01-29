@@ -188,6 +188,15 @@ namespace PatcherYRpp
             return func(GetThis().RawOffset(36));
         }
 
+
+
+        public unsafe CanBuildResult CanBuild(Pointer<TechnoTypeClass> pItem, bool buildLimitOnly, bool allowIfInProduction) 
+        {
+            var func = (delegate* unmanaged[Thiscall]<IntPtr, IntPtr, bool, bool, CanBuildResult>)0x4F7870;
+            return func(GetThis(),pItem,buildLimitOnly,allowIfInProduction);
+        }
+
+
         [FieldOffset(48)] public int ArrayIndex;
 
         [FieldOffset(52)] public Pointer<HouseTypeClass> Type;

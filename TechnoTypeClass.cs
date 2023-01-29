@@ -77,6 +77,8 @@ namespace PatcherYRpp
 
         [FieldOffset(896)] public double Size;
 
+        [FieldOffset(952)] public int BuildLimit;
+
         [FieldOffset(1460)] public MovementZone MovementZone;
 
         [FieldOffset(1516)] public int Speed;

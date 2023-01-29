@@ -132,6 +132,13 @@ namespace PatcherYRpp
         Succeeded = 2
     };
 
+    public enum CanBuildResult
+    {
+        TemporarilyUnbuildable = -1, // black out cameo
+	    Unbuildable = 0, // permanently; remove cameo
+	    Buildable = 1, // can build
+}   ;
+
     public enum Direction
     {
         N = 0x0,
