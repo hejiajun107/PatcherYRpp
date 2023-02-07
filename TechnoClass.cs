@@ -435,6 +435,10 @@ namespace PatcherYRpp
 
         [FieldOffset(336)] public VeterancyStruct Veterancy;
 
+        [FieldOffset(344)] public double ArmorMultiplier;
+        [FieldOffset(352)] public double FirepowerMultiplier;
+
+
         [FieldOffset(460)] public IntPtr drainTarget; // eg Disk . PowerPlant, this points to PowerPlant
         public Pointer<TechnoClass> DrainTarget { get => drainTarget; set => drainTarget = value; }
 

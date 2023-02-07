@@ -39,6 +39,30 @@ namespace PatcherYRpp
             return result;
         }
 
+        public unsafe bool IsDisguised()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, bool>)this.GetVirtualFunctionPointer(49);
+            return func(ref this);
+        }
+
+        public unsafe bool IsDisguisedAs(Pointer<HouseClass> phouse)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, IntPtr,bool>)this.GetVirtualFunctionPointer(50);
+            return func(ref this, phouse);
+        }
+
+        public unsafe Pointer<ObjectTypeClass> GetDisguise(bool disguisedAgainstAllies)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, bool, IntPtr>)this.GetVirtualFunctionPointer(51);
+            return func(ref this, disguisedAgainstAllies);
+        }
+
+        public unsafe Pointer<HouseClass> GetDisguiseHouse(bool disguisedAgainstAllies)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, bool, IntPtr>)this.GetVirtualFunctionPointer(52);
+            return func(ref this, disguisedAgainstAllies);
+        }
+
         public unsafe bool Remove()
         {
             var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, Bool>)this.GetVirtualFunctionPointer(53);
