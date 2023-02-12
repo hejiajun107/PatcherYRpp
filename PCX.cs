@@ -12,7 +12,7 @@ namespace PatcherYRpp
 
         private unsafe bool ForceLoadFile(string pFileName, int flag1, int flag2)
         {
-            var func = (delegate* unmanaged[Thiscall]<IntPtr, string, int, int, bool>)0x6B9D00;
+            var func = (delegate* unmanaged[Thiscall]<IntPtr, AnsiString, int, int, bool>)0x6B9D00;
             return func(this.GetThisPointer(), pFileName, flag1, flag2);
         }
 
@@ -27,7 +27,7 @@ namespace PatcherYRpp
 
         public unsafe Pointer<BSurface> GetSurface(string pFileName, Pointer<BytePalette> pPalette)
 		{
-            var func = (delegate* unmanaged[Thiscall]<IntPtr,string,IntPtr,IntPtr>)0x6BA140;
+            var func = (delegate* unmanaged[Thiscall]<IntPtr, AnsiString, IntPtr,IntPtr>)0x6BA140;
             return func(this.GetThisPointer(),pFileName,pPalette);
         }
 
