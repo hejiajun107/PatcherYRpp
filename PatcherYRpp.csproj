@@ -131,6 +131,7 @@
     <Compile Include="ObjectTypeClass.cs" />
     <Compile Include="OverlayTypeClass.cs" />
     <Compile Include="ParticleSystemTypeClass.cs" />
+    <Compile Include="PCX.cs" />
     <Compile Include="RadioClass.cs" />
     <Compile Include="RulesClass.cs" />
     <Compile Include="ScenarioClass.cs" />

@@ -69,6 +69,12 @@ namespace PatcherYRpp
             return elite ? this.EliteWeapon + index : this.Weapon + index;
         }
 
+        public unsafe Pointer<SHPStruct> GetCameo()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoTypeClass, IntPtr>)0x712040;
+            return func(ref this);
+        }
+
 
         [FieldOffset(0)] public ObjectTypeClass Base;
         [FieldOffset(0)] public AbstractTypeClass BaseAbstractType;
