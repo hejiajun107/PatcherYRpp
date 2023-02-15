@@ -237,6 +237,11 @@ namespace PatcherYRpp
             func(ref this, ref coord);
         }
 
+        public CellStruct GetMapCoords() 
+        {
+            return new CellStruct(Location.X / 256, Location.Y / 256);
+        } 
+
         public unsafe int GetHeight()
         {
             var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, int>)this.GetVirtualFunctionPointer(114);

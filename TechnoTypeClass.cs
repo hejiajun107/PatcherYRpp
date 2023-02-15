@@ -85,6 +85,11 @@ namespace PatcherYRpp
 
         [FieldOffset(952)] public int BuildLimit;
 
+        [FieldOffset(1028)] public IntPtr deploysInto;
+        public Pointer<BuildingTypeClass> DeploysInto => deploysInto;
+        [FieldOffset(1032)] public IntPtr undeploysInto;
+        public Pointer<UnitTypeClass> UndeploysInto => undeploysInto;
+
         [FieldOffset(1460)] public MovementZone MovementZone;
 
         [FieldOffset(1516)] public int Speed;
