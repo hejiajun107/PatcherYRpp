@@ -91,6 +91,7 @@
     <Compile Include="ColorScheme.cs" />
     <Compile Include="ConvertClass.cs" />
     <Compile Include="Dependencies\DirectDraw.cs" />
+    <Compile Include="DisplayClass.cs" />
     <Compile Include="Drawing.cs" />
     <Compile Include="FileFormats\SHPStruct.cs" />
     <Compile Include="FileSystem.cs" />
