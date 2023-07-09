@@ -422,6 +422,12 @@ namespace PatcherYRpp
         }
 
 
+        public unsafe bool DiscoveredBy(Pointer<HouseClass> pHouse)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass,IntPtr, bool>)0x6F4960;
+            return func(ref this, pHouse);
+        }
+
         [FieldOffset(0)] public RadioClass BaseRadio;
         [FieldOffset(0)] public MissionClass BaseMission;
         [FieldOffset(0)] public ObjectClass Base;
