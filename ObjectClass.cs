@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TextManager.Interop;
+using PatcherYRpp.FileFormats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace PatcherYRpp
 
 
         static public readonly IntPtr ObjectsInLayersPointer = new IntPtr(0x8A0360);
+
+        public unsafe Pointer<SHPStruct> GetImage()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref ObjectClass, IntPtr>)
+                this.GetVirtualFunctionPointer(27);
+            return func(ref this);
+        }
 
         public unsafe Pointer<TechnoTypeClass> GetTechnoType()
         {
