@@ -93,6 +93,7 @@
     <Compile Include="Dependencies\DirectDraw.cs" />
     <Compile Include="DisplayClass.cs" />
     <Compile Include="Drawing.cs" />
+    <Compile Include="EBolt.cs" />
     <Compile Include="FileFormats\SHPStruct.cs" />
     <Compile Include="FileSystem.cs" />
     <Compile Include="FlyLocomotionClass.cs" />

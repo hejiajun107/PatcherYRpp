@@ -228,6 +228,12 @@ namespace PatcherYRpp
             return func(ref this, dwUnk);
         }
 
+        public unsafe bool IsPowerOnline()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, bool>)this.GetVirtualFunctionPointer(212);
+            return func(ref this);
+        }
+
         public unsafe int DecreaseAmmo()
         {
             var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, int>)this.GetVirtualFunctionPointer(228);
@@ -395,7 +401,11 @@ namespace PatcherYRpp
             return func(ref this, pTarget, idxWeapon, pWeapon, ref coords);
         }
 
-
+        public unsafe Pointer<EBolt> Electric_Zap(Pointer<AbstractClass> pTarget, Pointer<WeaponTypeClass> pWeapon, CoordStruct sourceCoord)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, IntPtr, IntPtr, ref CoordStruct, IntPtr>)0x6FD460;
+            return func(ref this, pTarget, pWeapon, ref sourceCoord);
+        }
 
         public unsafe void SetTargetForPassengers(Pointer<AbstractClass> pTarget)
         {
@@ -491,6 +501,12 @@ namespace PatcherYRpp
         public Pointer<SpawnManagerClass> SpawnManager { get => spawnManager; set => spawnManager = value; }
         [FieldOffset(724)] public IntPtr spawnOwner;
         public Pointer<TechnoClass> SpawnOwner { get => spawnOwner; set => spawnOwner = value; }
+
+
+        public Pointer<TechnoClass> BunkerLinkedItem { get => bunkerLinkedItem; set => bunkerLinkedItem = value; }
+        [FieldOffset(740)] public IntPtr bunkerLinkedItem;
+
+
 
         [FieldOffset(764)] public int Ammo;
 

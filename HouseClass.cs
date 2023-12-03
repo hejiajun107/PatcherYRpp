@@ -99,6 +99,12 @@ namespace PatcherYRpp
             }
         }
 
+        public unsafe double GetPowerPercentage()
+        {
+            var func = (delegate* unmanaged[Thiscall]<IntPtr, double>)0x4FCE30;
+            return func(GetThis());
+        }
+
         public static unsafe Pointer<HouseClass> FindByCountryIndex(int houseType)
         {
             var func = (delegate* unmanaged[Thiscall]<int, IntPtr>)0x502D30;

@@ -19,6 +19,13 @@ namespace PatcherYRpp
             return func(ref this);
         }
 
+        public unsafe bool IsPowerOnline()
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref BuildingClass, bool>)0x4555D0;
+            return func(ref this);
+        }
+
+
         public unsafe uint GetFWFlags()
         {
             var func = (delegate* unmanaged[Thiscall]<ref BuildingClass, uint>)0x455B90;
