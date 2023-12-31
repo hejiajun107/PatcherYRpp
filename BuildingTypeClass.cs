@@ -27,6 +27,12 @@ namespace PatcherYRpp
         [FieldOffset(0)] public ObjectTypeClass BaseObjectType;
         [FieldOffset(0)] public AbstractTypeClass BaseAbstractType;
 
+
+        [FieldOffset(3580)] public IntPtr foundationData;
+        public Pointer<CellStruct> FoundationData { get => foundationData; set => foundationData = value; }
+
+
+
         [FieldOffset(5891)] public Bool PlaceAnywhere;
 
     }
