@@ -274,7 +274,7 @@ namespace PatcherYRpp
         [FieldOffset(21388)] public int NumOrePurifiers;
 
         [FieldOffset(21412)] public int PowerOutput;
-        [FieldOffset(21416)] public double PowerDrain;
+        [FieldOffset(21416)] public int PowerDrain;
 
 
         [FieldOffset(21556)]public int TotalKilledUnits;
