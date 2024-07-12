@@ -138,6 +138,7 @@
     <Compile Include="RulesClass.cs" />
     <Compile Include="ScenarioClass.cs" />
     <Compile Include="SessionClass.cs" />
+    <Compile Include="SidebarClass.cs" />
     <Compile Include="SideClass.cs" />
     <Compile Include="SpawnManagerClass.cs" />
     <Compile Include="SpawnNode.cs" />
