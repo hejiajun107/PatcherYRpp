@@ -79,6 +79,9 @@ namespace PatcherYRpp
         [FieldOffset(0)] public ObjectTypeClass Base;
         [FieldOffset(0)] public AbstractTypeClass BaseAbstractType;
 
+        [FieldOffset(562)] public Bool Insignificant;
+
+
         [FieldOffset(844)] public Guid Locomotor;
 
         [FieldOffset(896)] public double Size;
