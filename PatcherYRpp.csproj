@@ -152,6 +152,7 @@
     <Compile Include="TechnoTypeClass.cs" />
     <Compile Include="TerrainClass.cs" />
     <Compile Include="TerrainTypeClass.cs" />
+    <Compile Include="TiberiumClass.cs" />
     <Compile Include="UnitClass.cs" />
     <Compile Include="UnitTypeClass.cs" />
     <Compile Include="Unsorted.cs" />

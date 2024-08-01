@@ -108,6 +108,12 @@ namespace PatcherYRpp
             func(ref this, pCollector);
         }
 
+        public unsafe bool CanTiberiumGerminate(Pointer<TiberiumClass> pTiberium)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref CellClass, IntPtr, bool>)0x4838E0;
+            return func(ref this, pTiberium);
+        }
+
         // returns the tiberium's index in OverlayTypes
         public unsafe int GetContainedTiberiumIndex()
         {
