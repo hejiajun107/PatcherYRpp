@@ -51,6 +51,9 @@ namespace PatcherYRpp
 
         public void DetonateAndUnInit(CoordStruct coords)
         {
+            //if not set location,some effects of phobos will not applied
+            Base.SetLocation(coords);
+
             Detonate(coords);
             Base.UnInit();
         }
