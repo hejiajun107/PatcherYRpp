@@ -203,6 +203,28 @@ namespace PatcherYRpp
         }
 
 
+    
+        public bool IsControlledByCurrentPlayer()
+        {
+            if(SessionClass.Instance.GameMode != GameMode.Campaign)
+            {
+                return CurrentPlayer;
+            }
+            return PlayerControl || CurrentPlayer;
+        }
+
+  //      // Whether the human player on this computer can control this house.
+  //      bool IsControlledByCurrentPlayer() const { // { JMP_THIS(0x50B6F0); }
+		//if(SessionClass::Instance->GameMode != GameMode::Campaign) {
+		//	return this->IsCurrentPlayer();
+  //  }
+		//return this->IsHumanPlayer || this->IsInPlayerControl;
+  //  }
+
+
+
+
+
         [FieldOffset(48)] public int ArrayIndex;
 
         [FieldOffset(52)] public Pointer<HouseTypeClass> Type;

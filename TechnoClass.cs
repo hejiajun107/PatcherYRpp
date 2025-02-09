@@ -234,6 +234,12 @@ namespace PatcherYRpp
             return func(ref this);
         }
 
+        public unsafe void QueueVoice(int idxVoc)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, int, void>)this.GetVirtualFunctionPointer(213);
+            func(ref this, idxVoc);
+        }
+
         public unsafe int DecreaseAmmo()
         {
             var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, int>)this.GetVirtualFunctionPointer(228);
