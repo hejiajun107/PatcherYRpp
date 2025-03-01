@@ -36,7 +36,7 @@ namespace PatcherYRpp
 
         private static IntPtr ppCAMEO_PAL = new IntPtr(0x87F6B0);
         private static IntPtr ppUNITx_PAL = new IntPtr(0x87F6B4);
-        private static IntPtr ppPALETTE_PAL = new IntPtr(0x886380);
+        private static IntPtr ppPALETTE_PAL = new IntPtr(0x87F6C4);
         private static IntPtr ppx_PAL = new IntPtr(0x87F6B8);
         private static IntPtr ppGRFTXT_TIBERIUM_PAL = new IntPtr(0x87F6BC);
         private static IntPtr ppANIM_PAL = new IntPtr(0x87F6C0);
@@ -76,6 +76,17 @@ namespace PatcherYRpp
         public static Pointer<SHPStruct> LoadSHPFile(string fileName)
         {
             return LoadFile(fileName, true);
+        }
+
+        public static bool TyrLoadSHPFile(string fileName, out Pointer<SHPStruct> pSHP)
+        {
+            pSHP = IntPtr.Zero;
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                pSHP = LoadSHPFile(fileName);
+                return !pSHP.IsNull;
+            }
+            return false;
         }
 
         public static unsafe Pointer<T> AllocateFile<T>(string fileName)

@@ -156,19 +156,72 @@ namespace PatcherYRpp
             RectangleStruct rect = this.GetRect();
             DrawSHP(pPalette, pSHP, nFrame, point, rect, BlitterFlags.None, 0, 0, 0, 0x3E8, 0, IntPtr.Zero, 0, 0, 0);
         }
-        public unsafe void DrawSHP(Pointer<ConvertClass> Palette, Pointer<SHPStruct> SHP, int frameIdx,
-            Point2D pos, RectangleStruct boundingRect, BlitterFlags flags, uint arg7,
+
+        public unsafe void DrawSHP(Pointer<ConvertClass> pPalette, Pointer<SHPStruct> pSHP, int frameIdx,
+            Point2D pos, RectangleStruct bound, BlitterFlags flags, uint arg7,
             int zAdjust, uint arg9, uint bright, int TintColor, Pointer<SHPStruct> BUILDINGZ_SHA, uint argD, int ZS_X, int ZS_Y)
         {
-            DrawSHP(Palette, SHP, frameIdx, Pointer<Point2D>.AsPointer(ref pos), Pointer<RectangleStruct>.AsPointer(ref boundingRect), flags, arg7, zAdjust, arg9, bright, TintColor, BUILDINGZ_SHA, argD, ZS_X, ZS_Y);
+            CC_Draw_Shape(pPalette, pSHP, frameIdx, Pointer<Point2D>.AsPointer(ref pos), Pointer<RectangleStruct>.AsPointer(ref bound), flags, (int)arg7, zAdjust, (ZGradient)arg9, (int)bright, TintColor, BUILDINGZ_SHA, (int)argD, ZS_X, ZS_Y);
         }
-        public unsafe void DrawSHP(Pointer<ConvertClass> Palette, Pointer<SHPStruct> SHP, int frameIdx,
-            Pointer<Point2D> pos, Pointer<RectangleStruct> boundingRect, BlitterFlags flags, uint arg7,
-            int zAdjust, uint arg9, uint bright, int TintColor, Pointer<SHPStruct> BUILDINGZ_SHA, uint argD, int ZS_X, int ZS_Y)
+
+
+        public unsafe void DrawSHP(Pointer<ConvertClass> pPalette, Pointer<SHPStruct> pSHP, int frameIdx, Point2D pos)
         {
-            var func = (delegate* unmanaged[Thiscall]<int, ref Surface, IntPtr, IntPtr, int, IntPtr, IntPtr, BlitterFlags, uint, int, uint, uint, int, IntPtr, uint, int, int, void>)ASM.FastCallTransferStation;
-            func(0x4AED70, ref this, Palette, SHP, frameIdx, pos, boundingRect, flags, arg7, zAdjust, arg9, bright, TintColor, BUILDINGZ_SHA, argD, ZS_X, ZS_Y);
+            RectangleStruct bound = this.GetRect();
+            DrawSHP(pPalette, pSHP, frameIdx, pos, Pointer<RectangleStruct>.AsPointer(ref bound));
         }
+
+        public unsafe void DrawSHP(Pointer<ConvertClass> pPalette, Pointer<SHPStruct> pSHP, int frameIdx, Point2D pos, BlitterFlags flags)
+        {
+            RectangleStruct bound = this.GetRect();
+            DrawSHP(pPalette, pSHP, frameIdx, pos, Pointer<RectangleStruct>.AsPointer(ref bound), flags);
+        }
+
+        public unsafe void DrawSHP(Pointer<ConvertClass> pPalette, Pointer<SHPStruct> pSHP, int frameIdx,
+          Point2D pos, Pointer<RectangleStruct> pBound, BlitterFlags flags = (BlitterFlags)0x600, int bright = 1000, int tintColor = 0)
+        {
+            CC_Draw_Shape(pPalette, pSHP, frameIdx,
+                Pointer<Point2D>.AsPointer(ref pos), pBound, flags,
+                0, 0, ZGradient.Ground, bright, tintColor,
+                Pointer<SHPStruct>.Zero, 0, 0, 0);
+        }
+
+        // Comments from thomassneddon
+        public unsafe void CC_Draw_Shape(Pointer<ConvertClass> pPalette, Pointer<SHPStruct> pSHP, int frameIdx,
+            Pointer<Point2D> pLocation, Pointer<RectangleStruct> pBound, BlitterFlags flags,
+            int shaperFlags,
+            int zAdjust, // + 1 = sqrt(3.0) pixels away from screen
+            ZGradient zGradientDescIndex,
+            int bright, // 0~2000. Final color = saturate(OriginalColor * Brightness / 1000.0f)
+            int tintColor,
+            Pointer<SHPStruct> BUILDINGZ_SHA, int ZShapeFrame, int XOffset, int YOffset)
+        {
+            var func = (delegate* unmanaged[Thiscall]<int, ref Surface, IntPtr, IntPtr, int,
+                IntPtr, IntPtr, BlitterFlags,
+                int,
+                int,
+                ZGradient,
+                int,
+                int,
+                IntPtr, int, int, int, void>)ASM.FastCallTransferStation;
+            func(0x4AED70, ref this, pPalette, pSHP, frameIdx,
+                pLocation, pBound, flags,
+                shaperFlags,
+                zAdjust,
+                zGradientDescIndex,
+                bright,
+                tintColor,
+                BUILDINGZ_SHA, ZShapeFrame, XOffset, YOffset);
+        }
+
+
+        //public unsafe void DrawSHP(Pointer<ConvertClass> Palette, Pointer<SHPStruct> SHP, int frameIdx,
+        //    Pointer<Point2D> pos, Pointer<RectangleStruct> boundingRect, BlitterFlags flags, uint arg7,
+        //    int zAdjust, uint arg9, uint bright, int TintColor, Pointer<SHPStruct> BUILDINGZ_SHA, uint argD, int ZS_X, int ZS_Y)
+        //{
+        //    var func = (delegate* unmanaged[Thiscall]<int, ref Surface, IntPtr, IntPtr, int, IntPtr, IntPtr, BlitterFlags, uint, int, uint, uint, int, IntPtr, uint, int, int, void>)ASM.FastCallTransferStation;
+        //    func(0x4AED70, ref this, Palette, SHP, frameIdx, pos, boundingRect, flags, arg7, zAdjust, arg9, bright, TintColor, BUILDINGZ_SHA, argD, ZS_X, ZS_Y);
+        //}
 
 
         [FieldOffset(0)] public int Vfptr;
