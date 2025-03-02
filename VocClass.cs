@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DynamicPatcher;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -59,6 +60,12 @@ namespace PatcherYRpp
         {
             var func = (delegate* unmanaged[Thiscall]<ref VocClass, string>)0x751600;
             return func(ref this);
+        }
+
+        public static unsafe void PlayAt(int soundIndex, CoordStruct location, Pointer<AudioController> ctrl = default)
+        {
+            var func = (delegate* unmanaged[Thiscall]<int, int, ref CoordStruct, IntPtr, void>)ASM.FastCallTransferStation;
+            func(0x7509E0, soundIndex, ref location, ctrl);
         }
 
 

@@ -103,6 +103,9 @@ namespace PatcherYRpp
 
         [FieldOffset(1660)] public SpeedType SpeedType;
 
+        [FieldOffset(1676)] public int AirRangeBonus;
+
+
         [FieldOffset(1750)] public byte CameoFile_first;
         public AnsiStringPointer CameoFile => Pointer<byte>.AsPointer(ref CameoFile_first);
 

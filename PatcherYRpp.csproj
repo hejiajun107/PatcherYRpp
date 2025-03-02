@@ -76,6 +76,7 @@
     <Compile Include="AnimClass.cs" />
     <Compile Include="AnimTypeClass.cs" />
     <Compile Include="ArrayClass.cs" />
+    <Compile Include="AudioController.cs" />
     <Compile Include="BasicStructures.cs" />
     <Compile Include="Blitters.cs" />
     <Compile Include="BounceClass.cs" />
