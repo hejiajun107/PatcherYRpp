@@ -522,4 +522,14 @@ namespace PatcherYRpp
         Internet = 0x4,
         Skirmish = 0x5,
     };
+
+
+	public enum RadBeamType
+	{
+		Temporal = 0x0,
+		RadBeam = 0x1,
+		Eruption = 0x2 // this sets the beam color to MagnaBeamColor! There probably was no reason for that whatsoever.
+	};
+
+
 }
