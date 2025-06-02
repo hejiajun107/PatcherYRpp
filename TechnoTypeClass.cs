@@ -86,6 +86,9 @@ namespace PatcherYRpp
 
         [FieldOffset(896)] public double Size;
 
+        [FieldOffset(904)] public double SizeLimit;
+
+
         [FieldOffset(952)] public int BuildLimit;
 
         [FieldOffset(1028)] public IntPtr deploysInto;
@@ -94,6 +97,11 @@ namespace PatcherYRpp
         public Pointer<UnitTypeClass> UndeploysInto => undeploysInto;
 
         [FieldOffset(1460)] public MovementZone MovementZone;
+
+
+        [FieldOffset(1504)] public int Passengers;
+        
+
 
         [FieldOffset(1516)] public int Speed;
 

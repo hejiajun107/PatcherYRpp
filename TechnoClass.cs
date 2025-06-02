@@ -444,6 +444,16 @@ namespace PatcherYRpp
             return func(ref this, pHouse);
         }
 
+
+
+
+
+        public unsafe void SetFocus(Pointer<AbstractClass> pFocus)
+        {
+            var func = (delegate* unmanaged[Thiscall]<ref TechnoClass, IntPtr,void>)0x70C610;
+            func(ref this, pFocus);
+        }
+
         [FieldOffset(0)] public RadioClass BaseRadio;
         [FieldOffset(0)] public MissionClass BaseMission;
         [FieldOffset(0)] public ObjectClass Base;
