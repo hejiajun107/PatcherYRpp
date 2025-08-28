@@ -532,4 +532,35 @@ namespace PatcherYRpp
 	};
 
 
+
+    [Flags]
+    public enum TextPrintType
+    {
+        LASTPOINT = 0, //*
+        LASTSHADOW = 0, //*
+        Point6 = 0x1, //*
+        Point8 = 0x2,
+        Point3 = 0x3, //*
+        Led = 0x4, //*
+        Vcr = 0x5, //*
+        Point6Grad = 0x6,
+        Map = 0x7, //*
+        Metal12 = 0x8,
+        Efnt = 0x9, //*
+        Type = 0xA, //*
+        Score = 0xB, //*
+        Fonts = 0xF, //*
+        NoShadow = 0x10,
+        DropShadow = 0x20,
+        FullShadow = 0x40,
+        LightShadow = 0x80,
+        Center = 0x100,
+        Right = 0x200,
+        MediumColor = 0x1000,
+        BrightColor = 0x2000,
+        UseGradPal = 0x4000,
+        UnknownColor = 0x8000,
+        GradAll = 0xF000,
+    }
+
 }
