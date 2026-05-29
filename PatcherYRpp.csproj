@@ -137,6 +137,7 @@
     <Compile Include="PCX.cs" />
     <Compile Include="RadBeam.cs" />
     <Compile Include="RadioClass.cs" />
+    <Compile Include="Randomizer.cs" />
     <Compile Include="RulesClass.cs" />
     <Compile Include="ScenarioClass.cs" />
     <Compile Include="SessionClass.cs" />

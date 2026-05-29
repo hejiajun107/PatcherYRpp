@@ -21,6 +21,9 @@ namespace PatcherYRpp
         private static IntPtr instance = new IntPtr(0xA8B230);
         static public ref ScenarioClass Instance { get => ref instance.Convert<Pointer<ScenarioClass>>().Ref.Ref; }
 
+        //public Pointer<Randomizer> Random { get => random; set => random = value; }
+
+        [FieldOffset(536)] public Randomizer Random;
 
         [FieldOffset(4700)] public byte FileName_first;
         public AnsiStringPointer FileName => Pointer<byte>.AsPointer(ref FileName_first);
